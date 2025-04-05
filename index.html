@@ -1,4 +1,29 @@
-<!DOCTYPE html>
+# Crear los archivos directamente sin comprimir
+import os
+
+# Crear la carpeta base
+base_path = "/mnt/data/cuaderno-batalla-iris"
+os.makedirs(base_path, exist_ok=True)
+
+# Crear las carpetas de prácticas y sus subcarpetas
+subcarpetas = [
+    "APUNTES",
+    "DOCUMENTACIÓN",
+    "GUIA",
+    "MEMORIAS",
+    "PROTOCOLOS",
+    "PROYECTO",
+    "VIDEOS"
+]
+
+for sub in subcarpetas:
+    os.makedirs(os.path.join(base_path, "practicas", sub), exist_ok=True)
+    # Crear archivos de ejemplo en cada carpeta
+    with open(os.path.join(base_path, "practicas", sub, f"archivo_ejemplo_{sub.lower()}.txt"), "w") as f:
+        f.write(f"Este es un archivo de ejemplo en la carpeta {sub}.")
+
+# Contenido del index.html
+html_contenido = """<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -8,102 +33,41 @@
 <body>
   <header>
     <h1>El cuaderno de batalla de Iris</h1>
-    <nav>
-      <ul>
-        <li><a href="#practicas">Prácticas</a></li>
-        <li><a href="#tfc">TFC</a></li>
-        <li><a href="#procesos">Procesos Psicológicos</a></li>
-        <li><a href="#macro">Macroeconomía</a></li>
-        <li><a href="#metodos">Métodos</a></li>
-        <li><a href="#matricula">Matrícula</a></li>
-        <li><a href="#calendario">Calendario</a></li>
-      </ul>
-    </nav>
   </header>
-
-<section id="practicas">
-  <h2 style="text-align: center;">📘 Prácticas</h2>
-  <p style="text-align: center;">Organiza aquí todos los materiales relacionados con tus prácticas.</p>
-
-  <div class="card-grid">
-
-    <div class="card">
-      <h3>📝 Memorias</h3>
-      <a href="practicas/MEMORIAS/memoria_abril.pdf" target="_blank">📄 Memoria Abril</a><br>
-      <a href="practicas/MEMORIAS/memoria_mayo.docx" target="_blank">📄 Memoria Mayo</a>
+  <section id="practicas">
+    <h2>📘 Prácticas</h2>
+    <div class="card-grid">
+      <div class="card"><h3>📝 Memorias</h3><a href="practicas/MEMORIAS/archivo_ejemplo_memorias.txt">Ver ejemplo</a></div>
+      <div class="card"><h3>📚 Diario</h3><a href="practicas/APUNTES/archivo_ejemplo_apuntes.txt">Ver ejemplo</a></div>
+      <div class="card"><h3>⏱️ Asistencia</h3><a href="practicas/DOCUMENTACIÓN/archivo_ejemplo_documentación.txt">Ver ejemplo</a></div>
+      <div class="card"><h3>👩‍🏫 Tutor</h3><a href="practicas/GUIA/archivo_ejemplo_guia.txt">Ver ejemplo</a></div>
+      <div class="card"><h3>📋 Protocolos</h3><a href="practicas/PROTOCOLOS/archivo_ejemplo_protocolos.txt">Ver ejemplo</a></div>
+      <div class="card"><h3>🧩 Proyecto</h3><a href="practicas/PROYECTO/archivo_ejemplo_proyecto.txt">Ver ejemplo</a></div>
+      <div class="card"><h3>🎥 Vídeos</h3><a href="practicas/VIDEOS/archivo_ejemplo_videos.txt">Ver ejemplo</a></div>
     </div>
-
-    <div class="card">
-      <h3>📚 Diario de Campo</h3>
-      <a href="practicas/APUNTES/diario_semana1.pdf" target="_blank">🗒️ Semana 1</a><br>
-      <a href="practicas/APUNTES/diario_semana2.docx" target="_blank">🗒️ Semana 2</a>
-    </div>
-
-    <div class="card">
-      <h3>⏱️ Registro de Asistencia</h3>
-      <a href="practicas/DOCUMENTACIÓN/registro_asistencia.xlsx" target="_blank">📊 Registro General</a>
-    </div>
-
-    <div class="card">
-      <h3>👩‍🏫 Datos del Tutor/a</h3>
-      <a href="practicas/GUIA/datos_tutor.pdf" target="_blank">📄 Ficha del Tutor/a</a>
-    </div>
-
-    <div class="card">
-      <h3>📋 Protocolos</h3>
-      <a href="practicas/PROTOCOLOS/protocolo_seguridad.pdf" target="_blank">🔐 Seguridad</a><br>
-      <a href="practicas/PROTOCOLOS/protocolo_acogida.pdf" target="_blank">🤝 Acogida</a>
-    </div>
-
-    <div class="card">
-      <h3>🧩 Proyecto</h3>
-      <a href="practicas/PROYECTO/proyecto_infantil.pdf" target="_blank">📘 Espacio Infantil Seguro</a>
-    </div>
-
-    <div class="card">
-      <h3>🎥 Vídeos</h3>
-      <a href="practicas/VIDEOS/reflexion_1.mp4" target="_blank">🎙️ Reflexión 1</a><br>
-      <a href="practicas/VIDEOS/presentacion_final.mp4" target="_blank">📽️ Presentación Final</a>
-    </div>
-
-  </div>
-</section>
-
-
-
-    <section id="tfc">
-      <h2>Trabajo de Fin de Carrera (TFC)</h2>
-      <p>Espacio para el seguimiento del TFC.</p>
-    </section>
-
-    <section id="procesos">
-      <h2>Procesos Psicológicos Básicos</h2>
-      <p>Temario, vídeos explicativos y resúmenes.</p>
-    </section>
-
-    <section id="macro">
-      <h2>Macroeconomía</h2>
-      <p>Teoría económica, esquemas y actividades.</p>
-    </section>
-
-    <section id="metodos">
-      <h2>Métodos</h2>
-      <p>Ejercicios, técnicas estadísticas y análisis.</p>
-    </section>
-
-    <section id="matricula">
-      <h2>Documentos de Matrícula</h2>
-      <p>Aquí puedes subir tus documentos oficiales de matrícula, certificados, etc.</p>
-    </section>
-
-    <section id="calendario">
-      <h2>Calendario</h2>
-      <p>Aquí podrás insertar un calendario con las fechas importantes.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>Creado por Iris 💪 | Tu campo de batalla académico</p>
-  </footer>
+  </section>
+  <footer><p>Creado por Iris 🧠💪</p></footer>
 </body>
 </html>
+"""
+
+# Contenido del estilo.css
+css_contenido = """
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+header { background: #343a40; color: white; text-align: center; padding: 1em; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 2em; }
+.card { background: #e3f2fd; padding: 1em; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.card h3 { margin-top: 0; }
+.card a { text-decoration: none; color: #0077cc; }
+.card a:hover { text-decoration: underline; }
+footer { background: #ddd; text-align: center; padding: 1em; font-size: 0.9em; }
+"""
+
+# Guardar los archivos HTML y CSS
+with open(os.path.join(base_path, "index.html"), "w") as f:
+    f.write(html_contenido)
+
+with open(os.path.join(base_path, "estilo.css"), "w") as f:
+    f.write(css_contenido)
+
+base_path
